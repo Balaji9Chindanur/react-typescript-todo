@@ -15,3 +15,8 @@ export interface UpdateTodoItem {
     type: TodoListActionTypes.UPDATE_ITEM,
     payload: Item
 }
+
+
+export interface ShowTodos {
+    type: TodoListActionTypes.SHOW_TODOS
+}

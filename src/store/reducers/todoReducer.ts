@@ -1,5 +1,5 @@
 import {TodoListActionTypes} from '../action-types/index';
-import {AddTodoItem,RemoveTodoItem,UpdateTodoItem} from '../actions/index';
+import {AddTodoItem,RemoveTodoItem,UpdateTodoItem, ShowTodos} from '../actions/index';
 
 export interface Item  {
     id:number,
@@ -11,12 +11,15 @@ export interface ItemState {
 }
 
 const initialState: ItemState = {
-    data: []
+    data: [{
+        text: 'test',
+        id: 2
+    }]
 }
 
 const todoReducer = (state:ItemState = initialState, action:AddTodoItem |
                                                             RemoveTodoItem |
-                                                            UpdateTodoItem) => {
+                                                            UpdateTodoItem | ShowTodos ) => {
 
     switch(action.type) {
 
@@ -46,6 +49,9 @@ const todoReducer = (state:ItemState = initialState, action:AddTodoItem |
                                                     }
                                                 })
                                             }
+        case TodoListActionTypes.SHOW_TODOS: return {
+                                                data:state.data
+                                             };
         default: return state
     }   
 }

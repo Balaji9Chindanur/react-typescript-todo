@@ -1,4 +1,4 @@
-import {AddTodoItem, RemoveTodoItem, UpdateTodoItem} from '../actions/index';
+import {AddTodoItem, RemoveTodoItem, UpdateTodoItem,ShowTodos} from '../actions/index';
 import {TodoListActionTypes} from '../action-types/index';
 import {Item} from '../reducers/todoReducer';
 
@@ -21,6 +21,12 @@ export const updatedTodo = (item:Item):UpdateTodoItem => {
     return {
         type: TodoListActionTypes.UPDATE_ITEM,
         payload: item
+    }
+}
+
+export const showTodos = ():ShowTodos=> {
+    return {
+        type: TodoListActionTypes.SHOW_TODOS
     }
 }
 
